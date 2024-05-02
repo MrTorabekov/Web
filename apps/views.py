@@ -1,9 +1,11 @@
 from django.shortcuts import render
-
+from apps.models import Post
 
 
 def news(request):
-    return render(request, "news.html")
+    data = {}
+    data["dataset"] = Post.objects.all()
+    return render(request, "news.html",data)
 
 def contact(request):
     return render(request,"contact.html")
